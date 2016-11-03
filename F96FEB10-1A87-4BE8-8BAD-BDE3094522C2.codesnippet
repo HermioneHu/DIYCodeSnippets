@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (NSInteger)dayForMonth:(NSInteger)month
+{
+    NSInteger dNum=0;
+    switch (month)
+    {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            dNum = 30;
+            break;
+        case 2:
+            // 计算是否为闰年
+        {
+            NSInteger Y = 0;
+            if ([self.selectY isEqualToString:self.currentY])
+            {
+                Y = [self.currentY integerValue];
+            }
+            
+            Y = [self.selectY integerValue];
+            
+            
+            if (((Y%4==0) &amp;&amp; (Y%100!=0))|| (Y%400==0))
+            {
+                dNum = 29;
+            }
+            else
+            {
+                dNum = 28;
+            }
+            
+            
+        }
+            break;
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            dNum = 31;
+            break;
+    }
+    
+    if ([self.selectY isEqualToString:self.currentY] &amp;&amp; month == [self.currentM integerValue])
+    {
+        return dNum-[self.currentD integerValue]+1;
+    }
+    
+    return dNum;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F96FEB10-1A87-4BE8-8BAD-BDE3094522C2</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>计算每月天数</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>DayForMonth</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
