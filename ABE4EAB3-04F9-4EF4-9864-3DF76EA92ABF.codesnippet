@@ -7,21 +7,19 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>                                double delayInSeconds = 3.0;
-                                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds *NSEC_PER_SEC);
-                                dispatch_after(popTime, dispatch_get_main_queue(), ^{
-                                    
- 
-                                });</string>
+	<string>    NSString *string = @"1478584800";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY.MM.dd HH"];
+    NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>D6942229-A54C-4080-8D74-1F0190F77E3B</string>
+	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GCD-延迟执行任务</string>
+	<string>NSDate-时间戳转时间</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

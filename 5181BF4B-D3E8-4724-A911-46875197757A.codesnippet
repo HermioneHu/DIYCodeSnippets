@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>NSString *str = [NSString stringWithFormat:@"尾号%@的注册用户已成功绑定%@，成为新%@",username,self.model.display_name,self.role];
+
+NSRange range1 = [str rangeOfString:username];
+NSRange range2 = [str rangeOfString:self.model.display_name];
+NSRange range3 = [str rangeOfString:self.role];
+
+NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithString:str];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range1];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range2];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range3];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5181BF4B-D3E8-4724-A911-46875197757A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>NSMutableAttributeString-处理一段文字不同颜色</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
