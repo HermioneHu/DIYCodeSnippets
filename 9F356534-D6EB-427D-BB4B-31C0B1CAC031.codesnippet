@@ -7,19 +7,18 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSString *string = @"1478584800";
-NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-[formatter setDateFormat:@"YYYY.MM.dd HH"];
-NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);</string>
+	<string>[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+
+self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
+	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate-时间戳转时间</string>
+	<string>NavBar-设置为背景透明效果</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

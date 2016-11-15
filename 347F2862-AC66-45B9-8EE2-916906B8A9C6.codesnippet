@@ -7,19 +7,17 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSString *string = @"1478584800";
-NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-[formatter setDateFormat:@"YYYY.MM.dd HH"];
-NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);</string>
+	<string>// 设置标题为白色
+self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
+	<string>347F2862-AC66-45B9-8EE2-916906B8A9C6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate-时间戳转时间</string>
+	<string>NavBar-局部设置标题颜色</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

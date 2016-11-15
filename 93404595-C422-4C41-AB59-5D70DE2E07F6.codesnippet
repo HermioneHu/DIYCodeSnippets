@@ -7,19 +7,21 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSString *string = @"1478584800";
-NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-[formatter setDateFormat:@"YYYY.MM.dd HH"];
-NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);</string>
+	<string>UIButton *settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+settingBtn.frame = CGRectMake(0, 0, 44, 17);
+[settingBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+[settingBtn addTarget:self action:@selector(commitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingBtn];</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
+	<string>93404595-C422-4C41-AB59-5D70DE2E07F6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate-时间戳转时间</string>
+	<string>NavBar-配置自定义左右Button</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
