@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#define EMPTY_STRING        @""
+
+#define STR(key)            NSLocalizedString(key, nil)
+
+#define PATH_OF_APP_HOME    NSHomeDirectory()
+#define PATH_OF_TEMP        NSTemporaryDirectory()
+#define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+// UIConstants provides contants variables for UI control.
+#define UI_NAVIGATION_BAR_HEIGHT    44
+#define UI_TAB_BAR_HEIGHT           49
+#define UI_STATUS_BAR_HEIGHT        20
+#define UI_SCREEN_WIDTH             ([[UIScreen mainScreen] bounds].size.weight)
+#define UI_SCREEN_HEIGHT            ([[UIScreen mainScreen] bounds].size.height)
+
+#define UI_LABEL_LENGTH             200
+#define UI_LABEL_HEIGHT             15
+#define UI_LABEL_FONT_SIZE          12
+#define UI_LABEL_FONT               [UIFont systemFontOfSize:UI_LABEL_FONT_SIZE]
+
+
+
+/*
+ *  System Versioning Preprocessor Macros
+ */
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+/*
+ Usage sample:
+ 
+ if (SYSTEM_VERSION_LESS_THAN(@"4.0")) {
+ ...
+ }
+ 
+ if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"3.1.1")) {
+ ...
+ }
+ 
+ */
+
+// ------ DEVELOPMENT ENV
+//#define BASE_URL @"http://192.168.9.188:8882"
+//#define BASE_URL @"http://[2002:b4ad:90b5::1003]:8882"
+
+// ------ PRODUCTTION ENV
+#define BASE_URL @"http://www.irigi.net:82"
+
+// ------ COMPANY_TEST ENV
+//#define BASE_URL @"http://192.168.9.188:9992"
+
+
+
+// ------ po [[self view]recursiveDescription]
+// ------ 计算某个代码块执行的时间(用TICK和TOCK包住)
+#define TICK   NSDate *startTime = [NSDate date]
+#define TOCK   RLLog(@"当前代码块耗时: %f", -[startTime timeIntervalSinceNow])
+
+// ------  调试处理
+#ifdef DEBUG
+#define RLLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[方法名:%s]\n" "[行号:%d]\n " fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define RLLog(...);
+#endif
+
+
+// ------ 系统版本
+#define SYSTEM_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+#define SYSTEM_VERSION_7_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0)? (YES):(NO))
+#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+
+// ------  屏幕尺寸
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define NAVI_HEIGHT 64
+#define DEFAULT_CELL_HEIGHT 44
+#define SUCCESS_TAG 8000
+#define FAILURE_TAG 8001
+#define ERROR_TAG 8002
+#define WAITING_TAG 8003
+#define MESSAGE_TAG 8004
+#define GIF_TAG 8005
+#define GRACE_TIME .5f
+
+
+// ------ 颜色
+#define UIColorFromRGBA(r, g, b , a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define RGBA(r, g, b, a)  [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r, g, b)      RGBA(r, g, b, 1.0f)
+#define RandomColor RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+// ------ 16进制色值
+#define UIColorFromHex(color)                 [UIColor colorWithHex:color]
+#define UIColorFromHexAndAlpha(color, alpha)  [UIColor colorWithHex:color alpha:alpha]
+
+
+
+// ------ 弱引用 &amp; 单例
+#define WEAK_SELF __weak typeof(&amp;*self) weakSelf = self;
+#define NOTIF_CENTER [NSNotificationCenter defaultCenter]
+#define NETWORK  [RLNetworkApi shareInstance]
+#define DROPDOWN_VIEW [RLDropDownAlertView shareInstance]
+#define CHECK_VERSION [RLCheckVersion sharedCheckVersion]
+#define APPDELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+#define WidgetUserDefaults [[NSUserDefaults alloc] initWithSuiteName:@"group.com.IRIGI"]
+
+#define TOKEN [USER_DEFAULTS objectForKey:@"rlToken"]
+
+
+// ------ 获取temp
+#define kPathTemp NSTemporaryDirectory()
+// ------ 获取沙盒 Document
+#define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+// ------ 获取沙盒 Cache
+#define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+// ------ 设置View的圆角
+#define RLViewBorderRadius(View, Radius, Width, Color)\\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+// ------  主题色
+#define TABBAR_ALPHA 0.7
+#define kThemeColor [UIColor colorWithRed:40/255.0 green:147/255.0 blue:255/255.0 alpha:1.0]
+#define KTbackgroundColor [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]
+#define KUnableBtnWhiteColor [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:0.5]
+#define kUnableSMSColor [UIColor colorWithRed:40/255.0 green:147/255.0 blue:255/255.0 alpha:0.5]
+#define kRedColor [UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1.0]
+#define kYellowColor [UIColor colorWithRed:243/255.0 green:156/255.0 blue:18/255.0 alpha:1.0]
+
+
+
+// ------  字体处理
+#define kTitleFont [UIFont systemFontOfSize:17 * kScreenWidth / 375]
+#define kSubTitleFont [UIFont systemFontOfSize:15 * kScreenWidth / 375]
+#define kBodyFont [UIFont systemFontOfSize:14 * kScreenWidth / 375]
+#define kTinyFont [UIFont systemFontOfSize:12 ]//* kScreenWidth / 375]
+// ------  字体颜色
+#define kTextBuleColor [UIColor colorWithRed:40/255.0 green:147/255.0 blue:255/255.0 alpha:1.0]
+#define kTextGrayColor [UIColor colorWithRed:187/255.0 green:187/255.0 blue:187/255.0 alpha:1.0]
+#define kTextColor [UIColor colorWithRed:41/255.0 green:51/255.0 blue:49/255.0 alpha:1.0]
+
+#define KTnumberOneColor [UIColor colorWithRed:89/255.0 green:89/255.0 blue:104/255.0 alpha:1.0]
+#define KTnumberTwoColor [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0]
+#define KTnumberThreeColor [UIColor colorWithRed:187/255.0 green:187/255.0 blue:187/255.0 alpha:1.0]
+
+
+#pragma mark - textField用户密码处理
+#define kAlphaNum   [NSString stringWithFormat:@"%@",@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"]
+
+
+#pragma mark - 意见反馈限制文字最多200字
+#define kMaxFeedback 140
+#pragma mark - 物业报修描述限制文字最多140字
+#define kMaxRepair 140
+
+
+#pragma mark - 客户端信息采集
+// 设备唯一id(UUID)
+#define IUUID [[[NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]] componentsSeparatedByString:@"&gt; "] lastObject]
+// 设备名称
+#define DEVICENAME [[UIDevice currentDevice] name]
+// 系统名称
+#define SYSTEMNAME [[UIDevice currentDevice] systemName]
+// 系统版本
+#define SYSTEMVERSION [[UIDevice currentDevice] systemVersion]
+// 获取IDFA 广告标识符 (在用户干预下会生成重新生成不同的)
+#define IDFA [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString]
+// 获取IDFV Vendor标识符 (只有在同一供应商同一设备下运行同一APP才会生成相同IDFV)
+#define IDFV [[[UIDevice currentDevice] identifierForVendor] UUIDString]
+// ------ 平台编号
+#define CHANNEL_NUMBER [NSString stringWithFormat:@"%@",@"01"]
+// ------ 设备编号
+#define DEVICE_OS @"0"
+
+
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4AF05053-B756-4297-A359-0806C9E9EA3B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>PrefixHeader</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

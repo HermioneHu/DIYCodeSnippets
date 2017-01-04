@@ -24,7 +24,7 @@ NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithStrin
 	<key>IDECodeSnippetSummary</key>
 	<string>处理一段文字不同颜色</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSMutableAttributeString</string>
+	<string>NSMutableAttributedString</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

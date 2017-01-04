@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    // 用于在获得当前UIViewController比较困难的时候用
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+
+
+    //简单粗暴法
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+
+// 一般方法
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    [self.view endEditing:YES];
+}
+
+
+
+// ------ 单击viewcontroller的任何地方都可以收键盘
+[self.view endEditing:YES];
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>080BE897-C96D-4B78-A36B-3F100618FB4E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>回收键盘</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

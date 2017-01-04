@@ -10,7 +10,15 @@
 	<string>NSString *string = @"1478584800";
 NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
 [formatter setDateFormat:@"YYYY.MM.dd HH"];
-NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);</string>
+NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);
+
+
+
+NSDate *date = [NSDate dateWithTimeIntervalSince1970:[contentDict[@"create_time"] doubleValue]];
+NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+[formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+
+info.creatTime = [NSString stringWithFormat:@"%@",[formatter stringFromDate:date]];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
 	<key>IDECodeSnippetLanguage</key>

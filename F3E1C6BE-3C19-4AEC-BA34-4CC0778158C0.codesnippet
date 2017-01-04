@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    for(NSString *familyName in [UIFont familyNames]){
+        NSLog(@"Font FamilyName = %@",familyName); //输出字体族科名字
+        
+        for(NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+            NSLog(@"\t%@",fontName);         //输出字体族科下字样名字
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>F3E1C6BE-3C19-4AEC-BA34-4CC0778158C0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>打印出所有字体名字</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIFont</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

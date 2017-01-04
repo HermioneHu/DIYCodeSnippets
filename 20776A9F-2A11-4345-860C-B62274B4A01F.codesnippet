@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>-(void)applicationDidBecomeActive:(UIApplication *)application{
+    NSString *xml = [self digView:self.window];
+    [xml writeToFile:@"/Users/userName/desktop/window.xml" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
+- (NSString *)digView:(UIView *)view
+{
+    if ([view isKindOfClass:[UITableViewCell class]]) return @"";
+    // 1.初始化
+    NSMutableString *xml = [NSMutableString string];
+    
+    // 2.标签开头
+    [xml appendFormat:@"&amp;lt;%@ frame=\"%@\"", view.class, NSStringFromCGRect(view.frame)];
+    if (!CGPointEqualToPoint(view.bounds.origin, CGPointZero)) {
+        [xml appendFormat:@" bounds=\"%@\"", NSStringFromCGRect(view.bounds)];
+    }
+    
+    if ([view isKindOfClass:[UIScrollView class]]) {
+        UIScrollView *scroll = (UIScrollView *)view;
+        if (!UIEdgeInsetsEqualToEdgeInsets(UIEdgeInsetsZero, scroll.contentInset)) {
+            [xml appendFormat:@" contentInset=\"%@\"", NSStringFromUIEdgeInsets(scroll.contentInset)];
+        }
+    }
+    
+    // 3.判断是否要结束
+    if (view.subviews.count == 0) {
+        [xml appendString:@" /&amp;gt;"];
+        return xml;
+    } else {
+        [xml appendString:@"&amp;gt;"];
+    }
+    
+    // 4.遍历所有的子控件
+    for (UIView *child in view.subviews) {
+        NSString *childXml = [self digView:child];
+        [xml appendString:childXml];
+    }
+    
+    // 5.标签结尾
+    [xml appendFormat:@"&amp;lt;/%@&amp;gt;", view.class];
+    
+    return xml;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>20776A9F-2A11-4345-860C-B62274B4A01F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>查看当前window下的所有view</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

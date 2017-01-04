@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width = -5;
+    
+    //设置导航栏的按钮
+    UIBarButtonItem *backButton = [UIBarButtonItem itemWithImageName:@"navigationbar_back_image" highImageName:@"navigationbar_back_image" target:self action:@selector(back)];
+    viewController.navigationItem.leftBarButtonItems = @[negativeSpacer, backButton];
+    
+    // 就有滑动返回功能
+    self.interactivePopGestureRecognizer.delegate = nil;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5BCB70EE-3F98-40AA-AB9E-A2EE28B9550E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>添加滑动返回效果</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UINavigationBarController</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

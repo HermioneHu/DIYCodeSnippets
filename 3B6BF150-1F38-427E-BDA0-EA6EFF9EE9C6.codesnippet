@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    if (NSFoundationVersionNumber &gt; NSFoundationVersionNumber_iOS_9_0) {
+        
+        // do stuff for iOS 9 and newer
+        
+    } else {
+        
+        // do stuff for older versions than iOS 9
+        
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3B6BF150-1F38-427E-BDA0-EA6EFF9EE9C6</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>判断系统版本</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
