@@ -18,8 +18,10 @@ self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustom
 	<string>93404595-C422-4C41-AB59-5D70DE2E07F6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>配置自定义左右Button</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-配置自定义左右Button</string>
+	<string>NavBar</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

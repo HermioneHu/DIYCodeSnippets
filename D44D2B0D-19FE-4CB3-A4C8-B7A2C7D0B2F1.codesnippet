@@ -20,8 +20,10 @@
 	<string>D44D2B0D-19FE-4CB3-A4C8-B7A2C7D0B2F1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>createLabelForIndex</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UILabel-create</string>
+	<string>GreateMethod-UILabel</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

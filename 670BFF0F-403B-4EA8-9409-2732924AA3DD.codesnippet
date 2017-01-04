@@ -3,13 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>@pro</string>
+	<string>@retain</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassInterfaceMethods</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic,retain) 
+	<string>@property (nonatomic,retain)&lt;#parameterTypes#&gt; *&lt;#parameters#&gt;;
+
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>670BFF0F-403B-4EA8-9409-2732924AA3DD</string>

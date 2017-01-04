@@ -14,8 +14,10 @@ self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
 	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>设置为背景透明效果</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-设置为背景透明效果</string>
+	<string>NavBar</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

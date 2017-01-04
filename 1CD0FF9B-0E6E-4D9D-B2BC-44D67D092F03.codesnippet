@@ -14,8 +14,10 @@
 	<string>1CD0FF9B-0E6E-4D9D-B2BC-44D67D092F03</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>属性修改</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UIBarButtonItemAppearance-属性修改</string>
+	<string>UIBarButtonItemAppearance</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

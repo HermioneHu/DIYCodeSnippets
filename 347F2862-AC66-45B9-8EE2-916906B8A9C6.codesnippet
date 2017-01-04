@@ -13,8 +13,10 @@ self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColo
 	<string>347F2862-AC66-45B9-8EE2-916906B8A9C6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>局部设置标题颜色</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-局部设置标题颜色</string>
+	<string>NavBar</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

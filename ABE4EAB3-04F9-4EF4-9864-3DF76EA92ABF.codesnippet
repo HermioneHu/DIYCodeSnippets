@@ -15,8 +15,10 @@ NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[st
 	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>时间戳转时间</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate-时间戳转时间</string>
+	<string>NSDate</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
