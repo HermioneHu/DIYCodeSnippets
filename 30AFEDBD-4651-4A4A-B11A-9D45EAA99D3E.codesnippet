@@ -4,18 +4,20 @@
 <dict>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
-self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
+	<string>- (CGFloat)heightWithString:(NSString *)string size:(CGSize)size attributeDic:(NSDictionary *)attributeDic
+{
+    CGRect bounds = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributeDic context:nil];
+    return bounds.size.height;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
+	<string>30AFEDBD-4651-4A4A-B11A-9D45EAA99D3E</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-设置为背景透明效果</string>
+	<string>HeightForString</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

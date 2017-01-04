@@ -7,15 +7,15 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
-self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
+	<string>    // 修改文字颜色
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:kThemeColor];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitle:@"返回"];</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
+	<string>1CD0FF9B-0E6E-4D9D-B2BC-44D67D092F03</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-设置为背景透明效果</string>
+	<string>UIBarButtonItemAppearance-属性修改</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

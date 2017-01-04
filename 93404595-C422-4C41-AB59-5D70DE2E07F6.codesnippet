@@ -10,6 +10,7 @@
 	<string>UIButton *settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 settingBtn.frame = CGRectMake(0, 0, 44, 17);
 [settingBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+[settingBtn setTitleColor:kTextColor forState:UIControlStateNormal];
 [settingBtn addTarget:self action:@selector(commitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 
 self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingBtn];</string>
@@ -22,6 +23,6 @@ self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustom
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

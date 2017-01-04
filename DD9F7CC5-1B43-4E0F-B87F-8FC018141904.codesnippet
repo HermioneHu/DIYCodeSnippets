@@ -14,11 +14,13 @@
 	<string>DD9F7CC5-1B43-4E0F-B87F-8FC018141904</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>GCD-main</string>
 	<key>IDECodeSnippetTitle</key>
 	<string>GCD-在主线程执行</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

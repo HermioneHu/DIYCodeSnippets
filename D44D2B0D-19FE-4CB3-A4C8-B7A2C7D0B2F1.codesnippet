@@ -2,20 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>createLabelForIndex</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
-self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
+	<string>- (UILabel *)createLabelForIndex:(NSInteger)index
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(14, 5+index*20, 100, 20)];
+    label.font = kTinyFont;
+    label.textColor = kTextGrayColor;
+    return label;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
+	<string>D44D2B0D-19FE-4CB3-A4C8-B7A2C7D0B2F1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar-设置为背景透明效果</string>
+	<string>UILabel-create</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
