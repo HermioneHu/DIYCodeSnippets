@@ -2,23 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>@assign</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassInterfaceMethods</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic,assign)&lt;#parameterTypes#&gt; &lt;#parameters#&gt;;</string>
+	<string>//    ViewController里
+    if (IOS_VERSION_7_OR_ABOVE)
+    {
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+        [self setExtendedLayoutIncludesOpaqueBars:NO];
+    }
+//    意思就是相对VC的Y从导航栏下方开始从0计算，不会从屏幕顶端计算没入导航栏</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9600697D-0718-42D0-B0DC-675A1DA11708</string>
+	<string>6F1E94B9-73BA-41A6-8F54-5C0A91CE9944</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Property assign</string>
+	<string>UIViewController</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

@@ -22,7 +22,24 @@
     [alertVc addAction:action];
     [alertVc addAction:cancel];
     
-    [self presentViewController:alertVc animated:YES completion:nil];</string>
+    [self presentViewController:alertVc animated:YES completion:nil];
+
+
+
+// n秒之后自动消失的alertView
+UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提示"
+                                                                 message:massage
+                                                          preferredStyle:UIAlertControllerStyleAlert];
+
+
+[self presentViewController:alertVc animated:YES completion:^{
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [alertVc dismissViewControllerAnimated:YES completion:nil];
+    });
+    
+}];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>CCF5D76E-C422-45F7-BB12-8F1C2C703DD4</string>
 	<key>IDECodeSnippetLanguage</key>

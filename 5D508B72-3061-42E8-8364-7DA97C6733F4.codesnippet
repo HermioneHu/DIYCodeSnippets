@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    NSString *filePatch = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"test.plist"];
+    
+    /*
+     *
+     下面是我的plist路径,在桌面空白处点击一下，前往－按住option-资源库-Developer-CoreSimulator-Devices......就按照下面路径找到plist所在的位置
+     *
+     /Users/baiteng01/Library/Developer/CoreSimulator/Devices/92444384-5241-4934-B078-1A7241F1B687/data/Containers/Data/Application/73005382-D1FB-4BC2-BB4E-1FBC64284141/Documents/xiaoxi.plist
+     *
+     */
+    
+    //写入数据到plist文件
+    NSMutableDictionary *dic1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"estateid",@"estateid:931",@[@"111",@"222",@"333"],@"llkeys",@"dsadsaawd",@"mdkey",@"it is a test",@"test",nil];
+    
+    NSMutableDictionary *dic2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"estateid",@"estateid:330",@[@"666",@"777",@"888"],@"llkeys",@"ggglglglgldd",@"mdkey",@"it is a test",@"test",nil];
+    
+    NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithCapacity:1];
+    [dataDic setObject:dic1 forKey:@"estateid:931"];
+    [dataDic setObject:dic2 forKey:@"estateid:330"];
+    
+    [dataDic writeToFile:filePatch atomically:YES];
+    
+    //读取plist文件的内容
+    NSMutableDictionary *dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:filePatch];
+    NSLog(@"保存时候的内容---%@",dataDictionary);
+    
+    
+    NSMutableDictionary *dd = [dataDictionary objectForKey:@"estateid:330"];
+    //添加
+    [dd setObject:@"10001" forKey:@"code"];
+    //删除
+    [dd removeObjectForKey:@"test"];
+    //修改
+    [dd setObject:@"000000000" forKey:@"mdkey"];
+    //写入
+    [dataDictionary setObject:dd forKey:@"estateid:330"];
+    [dataDictionary writeToFile:filePatch atomically:YES];
+    NSLog(@"修改后的内容---%@",dataDictionary);
+    
+    //    /** 删除plist文件 */
+    //    NSFileManager *fileMger = [NSFileManager defaultManager];
+    //
+    //    NSString *testPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0]stringByAppendingPathComponent:@"test.plist"];
+    //
+    //    //如果文件路径存在的话
+    //    BOOL bRet = [fileMger fileExistsAtPath:testPath];
+    //
+    //    if (bRet) {
+    //
+    //        NSError *err;
+    //
+    //        [fileMger removeItemAtPath:testPath error:&amp;err];
+    //    }
+    
+    
+    
+//    filePath	@"/var/mobile/Containers/Data/Application/74194A0A-6B3B-469D-97DC-B1CFE6F1FA2B/DocumentskeyByEstateid.plist"</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5D508B72-3061-42E8-8364-7DA97C6733F4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Plist File</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

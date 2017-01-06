@@ -2,20 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>@assign</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassInterfaceMethods</string>
+		<string>Preprocessor</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic,assign)&lt;#parameterTypes#&gt; &lt;#parameters#&gt;;</string>
+	<string>#pragma mark -
+#pragma mark   ==============**********==============</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9600697D-0718-42D0-B0DC-675A1DA11708</string>
+	<string>E19A7614-696B-4EFB-9FC9-7408C029B4F2</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Property assign</string>
+	<string>注释</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

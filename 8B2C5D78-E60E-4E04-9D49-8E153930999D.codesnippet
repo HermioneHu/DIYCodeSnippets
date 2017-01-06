@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)doAnimation
+{
+    CAKeyframeAnimation *animation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
+    animation.duration=10.5f;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    animation.repeatCount=HUGE_VALF;// repeat forever
+    animation.calculationMode = kCAAnimationCubicPaced;
+    
+    CGMutablePathRef curvedPath = CGPathCreateMutable();
+    CGPathMoveToPoint(curvedPath, NULL, 96/2+54/2*4, 1);
+    CGPathAddQuadCurveToPoint(curvedPath, NULL, 96/2+54/2*5, 1, 96/2+54/2*6, 1);
+    
+    
+    animation.path=curvedPath;
+    
+    [self.layer addAnimation:animation forKey:nil];
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8B2C5D78-E60E-4E04-9D49-8E153930999D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>关键帧动画</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
