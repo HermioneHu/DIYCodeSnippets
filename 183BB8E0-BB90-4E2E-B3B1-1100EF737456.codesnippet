@@ -7,23 +7,20 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//    separatorInset这个属性是IOS7后才有的属性，所以需要判断一下，才能修改
-
-    if (IOS7_OR_LATER) {
-
-        cell.separatorInset = UIEdgeInsetsZero;// 这样修改，那条线就会占满
-
-    }
+	<string>//    // 防止Pushing the same view controller instance more than once is not supported
+if(![self.navigationController.topViewController isKindOfClass:[RepairSortController class]])
+{
+    [self.navigationController pushViewController:self.repairSortVc animated:YES];
     
-//    7.0以前，是占满的，不用修改</string>
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>BE63CB4B-B3B4-4642-8313-71AB703F42BC</string>
+	<string>183BB8E0-BB90-4E2E-B3B1-1100EF737456</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>使默认分隔线占满屏幕宽</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UITableViewCell</string>
+	<string>Exception--防止Pushing the same view controller instance more than once is not supported
+//    // 防止Pushing the same view controller instance more than once is not supported
+</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

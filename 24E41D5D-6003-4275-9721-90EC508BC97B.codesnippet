@@ -3,26 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>GCDdelay</string>
+	<string>remark</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>double delayInSeconds = 3.0;
-dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds *NSEC_PER_SEC);
-dispatch_after(popTime, dispatch_get_main_queue(), ^{
-
-
-});</string>
+	<string>#pragma mark -</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>D6942229-A54C-4080-8D74-1F0190F77E3B</string>
+	<string>24E41D5D-6003-4275-9721-90EC508BC97B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>GCD-延迟执行任务</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GCD-delay</string>
+	<string>remark</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

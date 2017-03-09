@@ -4,29 +4,20 @@
 <dict>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//    separatorInset这个属性是IOS7后才有的属性，所以需要判断一下，才能修改
-
-    if (IOS7_OR_LATER) {
-
-        cell.separatorInset = UIEdgeInsetsZero;// 这样修改，那条线就会占满
-
-    }
-    
-//    7.0以前，是占满的，不用修改</string>
+	<string>#define FILEPATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/announcement%@.plist",[USER_DEFAULTS objectForKey:@"userName"]]]
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>BE63CB4B-B3B4-4642-8313-71AB703F42BC</string>
+	<string>2640EADD-8FC2-4423-9A64-7BBF22BC2BE7</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>使默认分隔线占满屏幕宽</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UITableViewCell</string>
+	<string>FILEPATH</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

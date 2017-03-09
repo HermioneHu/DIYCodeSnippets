@@ -7,23 +7,13 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//    separatorInset这个属性是IOS7后才有的属性，所以需要判断一下，才能修改
-
-    if (IOS7_OR_LATER) {
-
-        cell.separatorInset = UIEdgeInsetsZero;// 这样修改，那条线就会占满
-
-    }
-    
-//    7.0以前，是占满的，不用修改</string>
+	<string>-com.apple.CoreData.SQLDebug</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>BE63CB4B-B3B4-4642-8313-71AB703F42BC</string>
+	<string>D33F6C90-C287-4F04-8880-E33E04D40F33</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>使默认分隔线占满屏幕宽</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UITableViewCell</string>
+	<string>Setting-SQLDebug</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
