@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>
+
+
+
+- (void)registerAPNS
+{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_10_0
+    if (SYSTEM_VERSION &gt;= 10)
+    {
+        // iOS 10
+        [self registerPush10];
+    }
+    else if (SYSTEM_VERSION &gt;= 8)
+    {
+        // iOS 8-9
+        [self registerPush8to9];
+    }
+    else
+    {
+        // before iOS 8
+        [self registerPushBefore8];
+    }
+#else
+    if (SYSTEM_VERSION &lt; 8)
+    {
+        // before iOS 8
+        [self registerPushBefore8];
+    }
+    else
+    {
+        // iOS 8-9
+        [self registerPush8to9];
+    }
+#endif
+}
+
+- (void)registerPush10{
+#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= __IPHONE_10_0
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    
+    
+    [center requestAuthorizationWithOptions:UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted)
+        {
+            // 点击允许
+            RLLog(@"注册成功");
+            [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                RLLog(@"%@", settings);
+            }];
+        }
+        else
+        {
+            // 点击不允许
+            RLLog(@"注册失败");
+        }
+    }];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+#endif
+}
+
+- (void)registerPush8to9{
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)registerPushBefore8{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+}
+
+//获取deviceToken
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    
+    NSString *userName = [USER_DEFAULTS objectForKey:@"userName"];
+    NSString *deviceTokenStr = [XGPush registerDevice:deviceToken account:userName successCallback:^{
+        RLLog(@"[XGPush]register successBlock");
+        [USER_DEFAULTS setObject:deviceTokenStr forKey:@"msg_uuid"];
+        [USER_DEFAULTS synchronize];
+        
+    } errorCallback:^{
+        RLLog(@"[XGPush]register errorBlock");
+        
+        [RLMBProgressHUD alertWithMBProgressHUD:@"[APNS]RegisterError"];
+    }];
+    
+    
+    if (![USER_DEFAULTS objectForKey:@"msg_uuid"])
+    {
+        
+        NSString *deviceString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
+        deviceString = [deviceString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSLog(@"deviceToken =========== %@",deviceString);
+        
+        [USER_DEFAULTS setObject:deviceTokenStr forKey:@"msg_uuid"];
+        [USER_DEFAULTS synchronize];
+        
+    }
+    
+    
+    RLLog(@"deviceTokenStr is %@",deviceTokenStr);
+}
+
+//如果deviceToken获取不到会进入此事件
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    
+    NSString *str = [NSString stringWithFormat: @"Error: %@",err];
+    
+    RLLog(@"[XGPush 设备注册失败]%@",str);
+    
+    [RLMBProgressHUD alertWithMBProgressHUD:@"[APNS]RegisterFail"];
+    
+}
+
+//注册UserNotificationSettings成功的回调
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    //用户已经允许接收以下类型的推送
+    //UIUserNotificationType allowedTypes = [notificationSettings types];
+    
+}
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EB9D81E7-3DFA-4F0E-A7B6-BBD5DF9F5837</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>注册APNS</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

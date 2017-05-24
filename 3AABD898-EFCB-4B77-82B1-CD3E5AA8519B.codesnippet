@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//    RLRegisterView *vc = [[RLRegisterView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+   
+//    RLException *ex = [[RLException alloc]initWithName:@"错误信息提示" reason:nil userInfo:nil];
+//    @try
+//    {
+    
+//        [ex noSuchMethod];
+        
+//        [vc noSuchMethod];
+
+//        NSLog(@"111111111111111");
+//    
+//    }
+//    @catch (NSException *exception)
+//    {
+//        
+//        NSLog(@"Caught %@%@", [exception name], [exception reason]);
+//        
+//        [RLException popAlertWithTitle:@"错误信息提示"  message:[NSString stringWithFormat:@"%@\n%@",[exception name],[exception reason]]];
+//        
+//        NSLog(@"333333333333333");
+//        
+//    }
+//    @finally
+//    {
+//        
+//        // 异常发生或者不发生，这里都会执行
+//        
+//        RLLog(@"finally");
+//    }
+//    
+//    NSLog(@"Execution continues!");
+//  </string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3AABD898-EFCB-4B77-82B1-CD3E5AA8519B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>捕获异常</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

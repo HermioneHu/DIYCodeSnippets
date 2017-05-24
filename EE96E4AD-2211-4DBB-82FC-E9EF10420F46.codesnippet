@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@property (nonatomic,assign) UIBackgroundTaskIdentifier backgroundUpdateTask;
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+
+    [self beginBackgroundUpdateTask];
+    
+    //这里加上你需要长久运行的代码
+    [self endBackgroundUpdateTask];
+    
+}
+
+
+- (void)beginBackgroundUpdateTask
+{
+    //app 仅有最多 5 秒钟的时候做一些保存或清理资源的工作。但是应用可以调用 UIApplication 的beginBackgroundTaskWithExpirationHandler方法，让 app 最多有 10 分钟的时间在后台长久运行。这个时间可以用来做清理本地缓存，发送统计数据等工作。
+    self.backgroundUpdateTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        
+        [self endBackgroundUpdateTask];
+    }];
+}
+
+- (void)endBackgroundUpdateTask
+{
+    [[UIApplication sharedApplication] endBackgroundTask:self.backgroundUpdateTask];
+    self.backgroundUpdateTask = UIBackgroundTaskInvalid;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EE96E4AD-2211-4DBB-82FC-E9EF10420F46</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>需要在后台长久运行的方法</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "RLNoticeModel.h"
+
+@interface RLNoticeModel ()&lt;NSCoding,NSCopying&gt;
+
+@end
+
+@implementation RLNoticeModel
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.noticeid forKey:@"noticeid"];
+    
+    [aCoder encodeObject:self.title forKey:@"title"];
+    
+    [aCoder encodeBool:self.isBanner forKey:@"isBanner"];
+    [aCoder encodeObject:self.ban_type forKey:@"ban_type"];
+    [aCoder encodeObject:self.bannerURL forKey:@"bannerURL"];
+    [aCoder encodeObject:self.propertyCompanyName forKey:@"community_display_name"];
+
+    [aCoder encodeObject:self.iconURL forKey:@"iconURL"];
+    
+    [aCoder encodeInteger:self.count forKey:@"count"];
+    [aCoder encodeObject:self.partDic forKey:@"partDic"];
+    
+    [aCoder encodeObject:self.announce_status forKey:@"announce_status"];
+    [aCoder encodeObject:self.important_status forKey:@"important_status"];
+    [aCoder encodeObject:self.urgent_status forKey:@"urgent_status"];
+    
+    [aCoder encodeObject:self.readStatusDic forKey:@"readStatusDic"];
+    
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init])
+    {
+        _noticeid = [[aDecoder decodeObjectForKey:@"noticeid"] copy];
+        
+        _title = [[aDecoder decodeObjectForKey:@"title"] copy];
+        
+        _isBanner = [aDecoder decodeBoolForKey:@"isBanner"];
+        _ban_type = [[aDecoder decodeObjectForKey:@"ban_type"] copy];
+        _bannerURL = [[aDecoder decodeObjectForKey:@"bannerURL"] copy];
+        
+        _propertyCompanyName = [[aDecoder decodeObjectForKey:@"community_display_name"] copy];
+        _iconURL = [[aDecoder decodeObjectForKey:@"iconURL"] copy];
+        
+        _count = [aDecoder decodeIntegerForKey:@"count"];
+        _partDic = [[aDecoder decodeObjectForKey:@"partDic"] copy];
+        
+        _announce_status = [[aDecoder decodeObjectForKey:@"announce_status"] copy];
+        _important_status = [[aDecoder decodeObjectForKey:@"important_status"] copy];
+        _urgent_status = [[aDecoder decodeObjectForKey:@"urgent_status"] copy];
+        
+        _readStatusDic = [[aDecoder decodeObjectForKey:@"readStatusDic"] copy];
+    }
+    return self;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    RLNoticeModel *model = [[[self class]allocWithZone:zone] init];
+    
+    model.noticeid = [self.noticeid copyWithZone:zone];
+    
+    model.title = [self.title copyWithZone:zone];
+    
+    model.isBanner = self.isBanner;
+    model.ban_type = [self.ban_type copyWithZone:zone];
+    model.bannerURL = [self.bannerURL copyWithZone:zone];
+    model.propertyCompanyName = [self.propertyCompanyName copyWithZone:zone];
+
+    model.iconURL = [self.iconURL copyWithZone:zone];
+    
+    model.count = self.count;
+    model.partDic = [self.partDic copyWithZone:zone];
+    
+    model.announce_status = [self.announce_status copyWithZone:zone];
+    model.important_status = [self.important_status copyWithZone:zone];
+    model.urgent_status = [self.urgent_status copyWithZone: zone];
+    
+    model.readStatusDic = [self.readStatusDic copyWithZone:zone];
+    
+    return model;
+}
+
+- (NSMutableDictionary *)partDic
+{
+    if (!_partDic)
+    {
+        _partDic = [NSMutableDictionary dictionary];
+    }
+    return _partDic;
+}
+
+- (NSMutableDictionary *)readStatusDic
+{
+    if (!_readStatusDic)
+    {
+        _readStatusDic = [NSMutableDictionary dictionary];
+    }
+    return _readStatusDic;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+}
+
+
+
+
+- (NSDictionary *)jsonForRLNoticeModel:(NSDictionary *)dataDic
+{
+    NSMutableDictionary *noticeModelDic = [NSMutableDictionary dictionary];
+
+    TICK;
+
+    NSMutableArray *modelArr = [NSMutableArray array];
+    
+    NSMutableDictionary *newAnnounceDic = dataDic[@"new_announce"];
+    
+
+    NSMutableDictionary *announcementDic = newAnnounceDic[@"announcements"];
+    
+    // announce
+    for (int i = 0; i &lt; announcementDic.allKeys.count; i++)
+    {
+        
+        
+        RLNoticeModel *model = [[RLNoticeModel alloc]init];
+
+        model.noticeid = [NSString stringWithFormat:@"%@",announcementDic.allKeys[i]];
+        
+        NSMutableDictionary *noticeidDic = announcementDic[announcementDic.allKeys[i]];
+
+        if ([noticeidDic.allKeys containsObject:@"banner"])
+        {
+            model.isBanner = YES;
+            
+            NSMutableDictionary *noticeBannerDic = noticeidDic[@"banner"];
+            
+            model.ban_type = [NSString stringWithFormat:@"%@",noticeBannerDic[@"ban_type"]];
+            model.bannerURL = noticeBannerDic[@"banner"];
+        }
+        
+        model.count = [noticeidDic[@"count"] integerValue];
+        
+        model.propertyCompanyName = noticeidDic[@"community_display_name"];
+        model.iconURL = [NSString stringWithFormat:@"%@",noticeidDic[@"icon_url"]];
+        
+        for (NSInteger j = 0; j &lt; model.count; j++)
+        {
+            
+            NSString *key = [NSString stringWithFormat:@"part%ld",(long)j];
+            [model.partDic setValue:noticeidDic[key] forKey:key];
+
+        }
+      
+        
+        [model.readStatusDic setObject:@"0" forKey:model.noticeid];
+        
+        
+        NSDictionary *sys_statusDic = noticeidDic[@"sys_status"];
+        model.announce_status = [NSString stringWithFormat:@"%@",sys_statusDic[@"announce_status"]];
+        model.important_status = [NSString stringWithFormat:@"%@",sys_statusDic[@"important_status"]];
+        model.urgent_status = [NSString stringWithFormat:@"%@",sys_statusDic[@"urgent_status"]];
+        model.title = noticeidDic[@"title"];
+        
+        
+        [modelArr addObject:model];
+        
+    }
+    
+    
+    [noticeModelDic setObject:modelArr forKey:@"modelArr"];
+    [noticeModelDic setObject:[NSString stringWithFormat:@"%@",newAnnounceDic[@"on_top"]] forKey:@"onTopNoticeid"];
+    
+    
+    
+    if (dataDic[@"used_announce"])
+    {
+        [noticeModelDic setObject:dataDic[@"used_announce"] forKey:@"usedAnnounce"];
+    }
+    
+    
+    TOCK;
+    return noticeModelDic;
+}
+
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>ED8F534E-C40E-4947-95FC-D5350353F0EE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>NSCoding &amp; NSCoping</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
