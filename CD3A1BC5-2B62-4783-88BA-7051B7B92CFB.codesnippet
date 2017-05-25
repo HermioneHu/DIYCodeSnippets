@@ -8,7 +8,11 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>    ~/Desktop/ProtoBuf
-    huhuimindeMacBook-Pro:ProtoBuf huhuimin$ protoc --plugin=/usr/local/bin/protoc-gen-objc person.proto --objc_out="./"</string>
+    huhuimindeMacBook-Pro:ProtoBuf huhuimin$ protoc --plugin=/usr/local/bin/protoc-gen-objc person.proto --objc_out="./"
+
+
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>CD3A1BC5-2B62-4783-88BA-7051B7B92CFB</string>
 	<key>IDECodeSnippetLanguage</key>
