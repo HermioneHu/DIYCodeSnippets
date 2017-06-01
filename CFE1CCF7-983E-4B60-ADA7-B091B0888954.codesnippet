@@ -14,8 +14,10 @@
 	<string>CFE1CCF7-983E-4B60-ADA7-B091B0888954</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetTitle</key>
+	<key>IDECodeSnippetSummary</key>
 	<string>Property copy</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快捷</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

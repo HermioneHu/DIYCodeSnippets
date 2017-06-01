@@ -16,8 +16,10 @@
 	<string>96335732-4545-4C9B-AA37-F76438A9884C</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>iOS9之后网络设置</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Setting-iOS9之后网络设置</string>
+	<string>Setting</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>configureButton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (void)configureButton
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.tag = 1000001;
+    
+    //设置位置
+    button.frame = CGRectMake(0, 0, 30, 30);
+    button.center = CGPointMake(15, 15);
+    //设置button圆角
+    button.layer.masksToBounds = YES;
+    button.layer.cornerRadius = 5;
+    //设置title
+    [button setTitle:@"hello" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+    //设置字体
+    button.titleLabel.font = [UIFont systemFontOfSize:10];
+    //设置文字对齐方式
+    button.titleLabel.textAlignment = NSTextAlignmentLeft;
+    button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+    //设置背景颜色
+    [button setBackgroundColor:[UIColor redColor]];
+    //设置图片
+    [button setImage:[UIImage imageNamed:@"imageName"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"imageName"] forState:UIControlStateHighlighted];
+
+    [button setBackgroundImage:[UIImage imageNamed:@"imageName"] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"imageName"] forState:UIControlStateHighlighted];
+
+    //内容模式：Scale：拉伸/Aspect:保持原来的宽高比
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //设置imageEdgeInsets来扩大button点击范围
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, 80, 0, 0);
+    
+    
+    [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)buttonAction:(UIButton *)button
+{
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A80D265B-0DAB-4762-A138-D24FC117792C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>创建Button</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Configure Button</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

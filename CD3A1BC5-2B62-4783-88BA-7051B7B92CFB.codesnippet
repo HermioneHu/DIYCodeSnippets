@@ -7,18 +7,21 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    ~/Desktop/ProtoBuf
-    huhuimindeMacBook-Pro:ProtoBuf huhuimin$ protoc --plugin=/usr/local/bin/protoc-gen-objc person.proto --objc_out="./"
+	<string>
+//protocol buffer version2.0
+protoc --plugin=/usr/local/bin/protoc-gen-objc person.proto --objc_out="./"
 
-
-
+//protocol buffer version3.0
+protoc -I=. --objc_out=. fileName.proto
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>CD3A1BC5-2B62-4783-88BA-7051B7B92CFB</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>编译生成OC文件命令</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ProtocolBuffer</string>
+	<string>命令-ProtocolBuffer</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

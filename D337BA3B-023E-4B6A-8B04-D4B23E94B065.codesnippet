@@ -29,9 +29,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>获取当前时间戳</string>
+	<string>当前时间戳</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate</string>
+	<string>转换-Timestamp</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

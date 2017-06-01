@@ -44,8 +44,10 @@ UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"提�
 	<string>CCF5D76E-C422-45F7-BB12-8F1C2C703DD4</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetTitle</key>
+	<key>IDECodeSnippetSummary</key>
 	<string>UIAlertController</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>快捷</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

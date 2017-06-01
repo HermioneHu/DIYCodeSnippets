@@ -2,23 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>dateStrForTimescript</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>NSString *string = @"1478584800";
-NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-[formatter setDateFormat:@"YYYY.MM.dd HH"];
-NSLog(@"%@", [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[string  doubleValue]]]);
-
-
-
-NSDate *date = [NSDate dateWithTimeIntervalSince1970:[contentDict[@"create_time"] doubleValue]];
-NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-[formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
-
-info.creatTime = [NSString stringWithFormat:@"%@",[formatter stringFromDate:date]];</string>
+	<string>- (NSString *)dateStrForTimescript:(NSString *)timescript
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timescript  doubleValue]]];
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
 	<key>IDECodeSnippetLanguage</key>
@@ -26,7 +23,7 @@ info.creatTime = [NSString stringWithFormat:@"%@",[formatter stringFromDate:date
 	<key>IDECodeSnippetSummary</key>
 	<string>时间戳转时间</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSDate</string>
+	<string>转换-DateStrForTimescript</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

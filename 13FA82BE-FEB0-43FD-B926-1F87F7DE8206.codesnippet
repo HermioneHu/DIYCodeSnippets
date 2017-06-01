@@ -7,13 +7,23 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>PATH:/Users/IRIGI/Library/Developer/Xcode/UserData/CodeSnippets</string>
+	<string>//CodeSnippets Path
+PATH:/Users/IRIGI/Library/Developer/Xcode/UserData/CodeSnippets
+
+
+
+
+
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>13FA82BE-FEB0-43FD-B926-1F87F7DE8206</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>路径集合，方便查询各种路径</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>CodeSnippets Path</string>
+	<string>Path Collection</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

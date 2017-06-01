@@ -2,18 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>allfont</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    for(NSString *familyName in [UIFont familyNames]){
+	<string>- (void)allFont
+{
+    for(NSString *familyName in [UIFont familyNames]){
         NSLog(@"Font FamilyName = %@",familyName); //输出字体族科名字
         
         for(NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
             NSLog(@"\t%@",fontName);         //输出字体族科下字样名字
         }
-    }</string>
+    }
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>F3E1C6BE-3C19-4AEC-BA34-4CC0778158C0</string>
 	<key>IDECodeSnippetLanguage</key>
@@ -21,7 +26,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>打印出所有字体名字</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UIFont</string>
+	<string>技巧-AllFont</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

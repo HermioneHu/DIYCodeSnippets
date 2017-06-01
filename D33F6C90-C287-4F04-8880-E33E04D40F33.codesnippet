@@ -12,8 +12,10 @@
 	<string>D33F6C90-C287-4F04-8880-E33E04D40F33</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>CoreData开启SQLDebug</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Setting-SQLDebug</string>
+	<string>Setting</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
