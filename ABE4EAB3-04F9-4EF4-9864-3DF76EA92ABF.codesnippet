@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dateStrForTimescript</string>
+	<string>datestrForTimescript</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (NSString *)dateStrForTimescript:(NSString *)timescript
+	<string>- (NSString *)datestrForTimescript:(NSString *)timescript
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
@@ -23,7 +23,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>时间戳转时间</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>转换-DateStrForTimescript</string>
+	<string>转换-DatestrForTimescript</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

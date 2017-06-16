@@ -15,7 +15,21 @@
 
     }
     
-//    7.0以前，是占满的，不用修改</string>
+//    7.0以前，是占满的，不用修改
+
+
+
+//tableView的cell分割线补全方法：
+//一：在cell底部添加view
+//二：在cell数量超过全屏的情况下，设置table背景色，使cell得高度小于rowHeight
+//三： ----底部分割线左靠边
+reminderListTable?.separatorInset = .zero
+reminderListTable?.layoutMargins = .zero
+if #available(iOS 9.0, *) {
+    reminderListTable?.cellLayoutMarginsFollowReadableWidth = false
+} else {
+    // Fallback on earlier versions
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>BE63CB4B-B3B4-4642-8313-71AB703F42BC</string>
 	<key>IDECodeSnippetLanguage</key>

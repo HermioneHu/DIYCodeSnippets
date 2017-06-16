@@ -2,89 +2,244 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>configureCoreData</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    // 搭建上下文环境
+	<string>@synthesize managedObjectContext = _managedObjectContext;
+
++ (RLCoreDataManager *)sharedInstance
+{
+    static RLCoreDataManager *_coreDataManager = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&amp;onceToken, ^{
+        _coreDataManager = [[RLCoreDataManager alloc]init];
+    });
+    return _coreDataManager;
+}
+
+
+//托管上下文
+- (NSManagedObjectContext *)managedObjectContext {
+    
+    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+    
+    if (_managedObjectContext != nil) {
+        
+        return _managedObjectContext;
+        
+    }
+    
+    // 搭建上下文环境
     // 从应用程序包中加载模型文件
-    NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+    NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:[NSBundle allBundles]];
     // 传输模型对象，初始化NSPersistentStoreCoordinator
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:model];
+    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     // 构建sqlite数据库文件路径
-    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    NSURL *url = [NSURL fileURLWithPath:[docs stringByAppendingPathComponent:@"person.data"]];
+    NSURL *url = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:ANNOUNCEMENTFILEPATHCOMPONENT];
+    
+    NSDictionary *options = @{NSPersistentStoreFileProtectionKey: NSFileProtectionComplete,
+                              NSMigratePersistentStoresAutomaticallyOption:@YES,
+                              NSInferMappingModelAutomaticallyOption:@YES};
     // 添加持久化存储库，这里使用sqlite作为存储库
     NSError *error = nil;
-    NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&amp;error];
-    if (store == nil)
+    NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:options error:&amp;error];
+    if (!store)
     {
-        [NSException raise:@"添加数据库错误" format:@"%@",[error localizedDescription]];
+        [NSException raise:@"数据库创建错误" format:@"%@",[error localizedDescription]];
+    }
+    // 初始化上下文，设置persistentStoreCoordinator属性
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    
+    [_managedObjectContext setPersistentStoreCoordinator:psc];
+    
+    return _managedObjectContext;
+}
+
+// coredata存储支持
+#pragma mark - Core Data Saving support
+- (void)saveContext {
+    
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    
+    if (managedObjectContext != nil) {
+        
+        NSError *error = nil;
+        
+        if ([managedObjectContext hasChanges] &amp;&amp; ![managedObjectContext save:&amp;error]) {
+            
+            // Replace this implementation with code to handle the error appropriately.
+            
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            
+            abort();
+            
+        }
+        
     }
     
-    // 初始化上下文，设置persistentStoreCoordinator属性
-    NSManagedObjectContext *context = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
-    context.persistentStoreCoordinator = psc;
+}
+
+
+#pragma mark - HomeBannerAnnounce
+#pragma mark 获取首页banner
+-(void)handleBannerForDataArr:(NSArray *)dataArr bannerUpdateTime:(NSString *)bannerUpdateTime
+{
     
+    if (dataArr.count &gt; 0)
+    {
+        //先delete
+        [self removeBanner];
+    }
     
-    // 添加数据到数据库
-    // 传入上下文，创建一个Person实体对象
-    Person *person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
-    // 设置Person简单属性
-    person.name = @"hello";
-    person.gender = @"hi";
- 
-    // 利用上下文，将数据同步导持久化存储库
-    BOOL success = [context save:&amp;error];
+    // banners
+    for (int i = 0; i &lt; dataArr.count; i++)
+    {
+        NSDictionary *dic = dataArr[i];
+        
+        RLBanner *banner = [NSEntityDescription insertNewObjectForEntityForName:@"RLBanner" inManagedObjectContext:self.managedObjectContext];
+        
+        banner.userName = USERNAME;
+        banner.stateName = STATENAME;
+        
+        NSString *bannerURL = dic[@"banner"];
+        NSString *announceDetailURL = dic[@"announce_detail"];
+        NSString *announceid = [NSString stringWithFormat:@"%@",dic[@"announce_id"]];
+        
+        if ([self isExistBannerURL:bannerURL]) continue;
+        
+        
+        banner.banner_read_status = @"0";
+        banner.banner_url = bannerURL;
+        banner.banner_detail_url = announceDetailURL;
+        banner.banner_update_time = bannerUpdateTime;
+        banner.announce_id = announceid;
+        
+        NSError *error = nil;
+        BOOL success = [self.managedObjectContext save:&amp;error];
+        if (!success)
+        {
+            [NSException raise:@"访问数据库错误" format:@"%@",[error localizedDescription]];
+        }
+        
+    }
+    
+}
+
+// 检查本地是否存在此条Banner
+- (BOOL)isExistBannerURL:(NSString *)bannerURL
+{
+    if (![NSString isNullString:bannerURL])
+    {
+        // 设置排序（）
+        //    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"gender" ascending:NO];
+        // 设置过滤条件（搜索name包含字符串“xxx”的记录，主义：设置条件过滤时，数据库SQL语句中的%要用*来代替）
+        //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like %@",@"*xxx"];
+        //    request.predicate = predicate;
+        // 执行请求
+        NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"RLBanner"];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userName = %@ &amp;&amp; stateName = %@ &amp;&amp; banner_url = %@",USERNAME,STATENAME,bannerURL];
+        [request setPredicate:predicate];
+        
+        NSArray *arr = [self.managedObjectContext executeFetchRequest:request error:nil];
+        if (arr.count &gt; 0)
+        {
+            return YES;
+        }
+        return NO;
+    }
+    return NO;
+}
+
+#pragma mark 读取HomeBannerAnnounce
+- (NSArray *)retreveHomeBanner
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RLBanner" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userName = %@ &amp;&amp; stateName = %@",USERNAME,STATENAME];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *arr = [self.managedObjectContext executeFetchRequest:request error:&amp;error];
+    
+    if (error) [NSException raise:@"查询错误" format:@"%@",[error localizedDescription]];
+    
+    if (arr.count &gt; 0)
+    {
+        return arr;
+    }
+    
+    return nil;
+}
+
+//获取本地最新的bannerUpdateTime
+- (NSString *)returnLastesBannerUpdateTime
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RLBanner" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userName = %@ &amp;&amp; stateName = %@",USERNAME,STATENAME];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *arr = [self.managedObjectContext executeFetchRequest:request error:&amp;error];
+    
+    if (error) [NSException raise:@"查询错误" format:@"%@",[error localizedDescription]];
+    
+    if (arr.count &gt; 0)
+    {
+        RLBanner *banner = arr.firstObject;
+        return banner.banner_update_time;
+    }
+    
+    return nil;
+}
+
+- (void)removeBanner
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RLBanner" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc]init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userName = %@ &amp;&amp; stateName = %@",USERNAME,STATENAME];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *arr = [self.managedObjectContext executeFetchRequest:request error:&amp;error];
+    
+    if (error) [NSException raise:@"查询错误" format:@"%@",[error localizedDescription]];
+    
+    if (arr.count &gt; 0)
+    {
+        
+        for (RLBanner*banner in arr)
+        {
+            [self.managedObjectContext deleteObject:banner];
+        }
+    }
+    NSError *saveError = nil;
+    BOOL success = [self.managedObjectContext save:&amp;saveError];
     if (!success)
     {
-        [NSException raise:@"访问数据库错误" format:@"%@",[error localizedDescription]];
+        [NSException raise:@"访问数据库错误" format:@"%@",[saveError localizedDescription]];
     }
-    // 如果想要做更新操作，只要在更改了实体对象的书香后调用【context save：&amp;error】，就能将更新的数据同步到数据库
-    
-    
-    
-    // 3， 从数据库中查询数据
-    // 初始化一个查询请求
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    // 设置要查询的实体
-    request.entity = [NSEntityDescription entityForName:@"Person" inManagedObjectContext:context];
-    // 设置排序（）
-//    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"gender" ascending:NO];
-    // 设置过滤条件（搜索name包含字符串“xxx”的记录，主义：设置条件过滤时，数据库SQL语句中的%要用*来代替）
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like %@",@"*xxx"];
-//    request.predicate = predicate;
-    // 执行请求
-    NSArray *objs = [context executeFetchRequest:request error:&amp;error];
-    if (error)
-    {
-        [NSException raise:@"查询错误" format:@"%@",[error localizedDescription]];
-
-    }
-    // 遍历数据
-    for (Person *obj in objs)
-    {
-        NSLog(@"name = %@",person.name);
-    }
-    // ps：coredata不会根据试题中的关联关系立即获取相应的关联对象，比如通过coredata取出person实体时，并不会立即查询相关联的card实体，当应用真的需要使用card时，才会再次查询数据库，加载card实体的信息，这个就是coredata的延迟加载机制
-    
-    // 4,删除数据库中的数据
-    // 传入需要喊出的实体对象
-    [context deleteObject:person];
-    // 将结果同步到数据库
-    [context save:&amp;error];
-    if (error)
-    {
-        [NSException raise:@"删除错误" format:@"%@",[error localizedDescription]];
-    }
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>0D4BD9DD-84FA-49AA-8649-B97CA96938D3</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>创建CoreData</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>CoreData</string>
+	<string>快捷-ConfigureCoreData</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

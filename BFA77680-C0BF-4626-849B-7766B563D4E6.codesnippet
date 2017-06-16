@@ -7,33 +7,41 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 300, 300)];
-    
-    // 设置为多行显示
-    label.numberOfLines = 0;
-    
-    NSMutableParagraphStyle  *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    
-    // 行间距设置为30
-    [paragraphStyle  setLineSpacing:15];
-    
-    NSString  *testString = @"设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距设置Label的行间距";
-    NSMutableAttributedString  *setString = [[NSMutableAttributedString alloc] initWithString:testString];
-    [setString  addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [testString length])];
-    
-    // 设置Label要显示的text
-    [label  setAttributedText:setString];
-    
-    
-    [self.view addSubview:label];</string>
+	<string>#pragma mark - 设置行间距
+label.numberOfLines = 0;//任意行数
+//以下方法可以插入行间距。如果用label.text就不能插入行距，很难看。
+NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
+NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//注意，每一行的行间距分两部分，topSpacing和bottomSpacing。
+[paragraphStyle setLineSpacing:3.f];//调整行间距
+[attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [content length])];
+label.attributedText = attributedString;
+CGSize size = [self sizeThatFits:CGSizeMake(label.frame.size.width, MAXFLOAT)];
+CGRect frame = label.frame;
+frame.size.height = size.height;
+[label setFrame:frame];
+
+
+
+#pragma mark - 不同颜色的一段文字
+NSString *str = [NSString stringWithFormat:@"尾号%@的注册用户已成功绑定%@，成为新%@",username,self.model.display_name,self.role];
+
+NSRange range1 = [str rangeOfString:username];
+NSRange range2 = [str rangeOfString:self.model.display_name];
+NSRange range3 = [str rangeOfString:self.role];
+
+NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithString:str];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range1];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range2];
+[att addAttribute:NSForegroundColorAttributeName value:kTextBuleColor range:range3];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>BFA77680-C0BF-4626-849B-7766B563D4E6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>设置间距</string>
+	<string>文字段落和处理</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSMutableAttributedString</string>
+	<string>技巧-NSMutableAttributedString</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -7,20 +7,18 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-
-self.navigationController.navigationBar.shadowImage = [UIImage new];</string>
+	<string>    NSString *deviceString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
+    deviceString = [deviceString stringByReplacingOccurrencesOfString:@" " withString:@""];
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>9F356534-D6EB-427D-BB4B-31C0B1CAC031</string>
+	<string>C605F94E-E0D7-4954-9954-462EAFEE3229</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>设置为背景透明效果</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar</string>
+	<string>My Code Snippet</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

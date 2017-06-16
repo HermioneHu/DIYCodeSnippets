@@ -20,10 +20,8 @@ PATH:/Users/IRIGI/Library/Developer/Xcode/UserData/CodeSnippets
 	<string>13FA82BE-FEB0-43FD-B926-1F87F7DE8206</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>路径集合，方便查询各种路径</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Path Collection</string>
+	<string>技巧-Path Collection</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -20,8 +20,10 @@ NSDictionary *announceListDic = [NSJSONSerialization JSONObjectWithData:response
 	<string>74E6411D-19EB-4316-9CDF-3582D5064CF9</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>互转json和data</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>JSON transform DATA</string>
+	<string>转换-JSON transform DATA</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

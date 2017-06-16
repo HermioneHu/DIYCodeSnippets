@@ -30,6 +30,9 @@
     button.titleLabel.textAlignment = NSTextAlignmentLeft;
     button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
     button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+    
+    // ------  setBackgroundImage，image会随着button的大小而改变，图片自动会拉伸来适应button的大小，这个时候任然可以设置button的title，image不会挡住title；
+    // ------  setImage，图片不会进行拉伸，原比例的显示在button上，此时再设置title，title将无法显示
     //设置背景颜色
     [button setBackgroundColor:[UIColor redColor]];
     //设置图片
@@ -60,7 +63,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>创建Button</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Configure Button</string>
+	<string>快捷-ConfigureButton</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

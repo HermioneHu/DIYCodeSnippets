@@ -7,18 +7,41 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    // ------ 1.隐藏默认的返回按钮
-    self.navigationItem.hidesBackButton = YES;
-    // ------ 2.隐藏自定义的左边按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];</string>
+	<string>#pragma mark - 隐藏导航栏左边返回键按钮
+// ------ 1.隐藏默认的返回按钮
+self.navigationItem.hidesBackButton = YES;
+// ------ 2.隐藏自定义的左边按钮
+self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] init];
+
+#pragma mark - 配置自定义左右Button
+UIButton *settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+settingBtn.frame = CGRectMake(0, 0, 44, 17);
+[settingBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+[settingBtn setTitleColor:kTextColor forState:UIControlStateNormal];
+[settingBtn addTarget:self action:@selector(commitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingBtn];
+
+#pragma mark - 设置为背景透明效果
+
+[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+
+self.navigationController.navigationBar.shadowImage = [UIImage new];
+
+#pragma mark - 设置导航栏自带一条黑线
+self.navigationController.navigationBar.shadowImage = nil;
+
+#pragma mark - 去掉导航栏返回按钮的文字
+[[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+
+#pragma mark - 设置标题为白色
+self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>F4610CEF-0AED-4E82-A12A-CF12C01E8C65</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>隐藏导航栏左边返回键按钮</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar</string>
+	<string>技巧-NavBar Collection</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -7,38 +7,50 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    //方法二 使用分组图（需要UI切图,图片起名字最好规范一些!!!）
+	<string>#pragma mark - 加载gif
+//方法二 使用分组图（需要UI切图,图片起名字最好规范一些!!!）
+
+UIImageView *imagesView = [[UIImageView alloc]init];
+imagesView.frame = CGRectMake(100, 140, 100, 100);
+NSMutableArray *array  = [NSMutableArray new];
+for (int i = 0; i&lt;14; i++) {
     
-    UIImageView *imagesView = [[UIImageView alloc]init];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_0000%d",i]];
     
-    imagesView.frame = CGRectMake(100, 140, 100, 100);
-    
-    NSMutableArray *array  = [NSMutableArray new];
-    
-    for (int i = 0; i&lt;14; i++) {
-        
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_0000%d",i]];
-        
-        [array addObject:image];
-    }
-    
-    imagesView.animationImages = array;
-    
-    imagesView.animationDuration = 0.5;
-    
-    imagesView.animationRepeatCount =  MAXFLOAT;//这里也可以设置重复次数.
-    
-    [imagesView startAnimating];
-    
-    [self.view addSubview: imagesView];</string>
+    [array addObject:image];
+}
+imagesView.animationImages = array;
+imagesView.animationDuration = 0.5;
+imagesView.animationRepeatCount =  MAXFLOAT;//这里也可以设置重复次数.
+[imagesView startAnimating];
+[self.view addSubview: imagesView];
+
+#pragma mark - 加载已有gif
+//方法三  如果你的项目中使用了SDwebImage第三方,导入"UIImage+GIF.h"头文件
+NSString  *Path = [[NSBundle bundleWithPath:[[NSBundle mainBundle] bundlePath]] pathForResource:@"dog.gif" ofType:nil];
+NSData  *imageData = [NSData dataWithContentsOfFile:Path];
+UIImageView *sdImage = [UIImageView new];
+sdImage.image = [UIImage sd_animatedGIFWithData:imageData];
+sdImage.frame = CGRectMake(100, 260, 150, 100);
+[self.view addSubview:sdImage];
+
+#pragma mark - 网络加载gif
+//使用网络下载图片需要注意一下适配iOS9 ，http请求需要添加白名单，否则请求网络地址会被禁止
+//方法四 从网络下载图片(这里使用的是SDwebimge方法)
+NSString *urlString = @"http://c.hiphotos.baidu.com/zhidao/pic/item/3801213fb80e7becf636ec082c2eb9389a506b6f.jpg";
+NSURL *url = [NSURL URLWithString:urlString];
+NSData *data = [NSData dataWithContentsOfURL:url];
+UIImageView *imageView = [[UIImageView alloc]init];
+imageView.frame = CGRectMake(100, 380, 150, 100);
+imageView.image = [UIImage sd_animatedGIFWithData:data];
+imageView.backgroundColor = [UIColor redColor];
+[self.view addSubview:imageView];</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7A06CEB1-3984-4AD2-AC94-1C262618CECD</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>加载gif</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UIImageView</string>
+	<string>技巧-UIImageView加载gif</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -7,11 +7,11 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-//主线程
+	<string>//主线程
 dispatch_async(dispatch_get_main_queue(), ^{
     &lt;#your code#&gt;
 });
+
 
 // 后台执行
 dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -59,10 +59,8 @@ dispatch_group_notify(group, dispatch_get_global_queue(0, 0), ^{
 	<string>ACA257DC-016C-4355-94B2-E5DC5E6F0124</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>汇总</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GCD Collection</string>
+	<string>技巧-GCD Collection</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

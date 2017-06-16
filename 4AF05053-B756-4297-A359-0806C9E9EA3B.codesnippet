@@ -7,13 +7,14 @@
 		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#define EMPTY_STRING        @""
+	<string>//UserDefaults中的所有Key写在这里
 
+#define EMPTY_STRING        @""
 #define STR(key)            NSLocalizedString(key, nil)
-
 #define PATH_OF_APP_HOME    NSHomeDirectory()
 #define PATH_OF_TEMP        NSTemporaryDirectory()
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
 
 // UIConstants provides contants variables for UI control.
 #define UI_NAVIGATION_BAR_HEIGHT    44
@@ -26,7 +27,6 @@
 #define UI_LABEL_HEIGHT             15
 #define UI_LABEL_FONT_SIZE          12
 #define UI_LABEL_FONT               [UIFont systemFontOfSize:UI_LABEL_FONT_SIZE]
-
 
 
 /*
@@ -118,10 +118,8 @@
 #define DROPDOWN_VIEW [RLDropDownAlertView shareInstance]
 #define CHECK_VERSION [RLCheckVersion sharedCheckVersion]
 #define APPDELEGATE ((AppDelegate*)[[UIApplication sharedApplication] delegate])
-
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 #define WidgetUserDefaults [[NSUserDefaults alloc] initWithSuiteName:@"group.com.IRIGI"]
-
 #define TOKEN [USER_DEFAULTS objectForKey:@"rlToken"]
 
 
@@ -191,18 +189,13 @@
 // ------ 平台编号
 #define CHANNEL_NUMBER [NSString stringWithFormat:@"%@",@"01"]
 // ------ 设备编号
-#define DEVICE_OS @"0"
-
-
-
-
-</string>
+#define DEVICE_OS @"0"</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>4AF05053-B756-4297-A359-0806C9E9EA3B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>PrefixHeader</string>
+	<string>技巧-PrefixHeader</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

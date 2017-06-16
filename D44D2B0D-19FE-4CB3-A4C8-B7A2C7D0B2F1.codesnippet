@@ -3,13 +3,43 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>createLabelForIndex</string>
+	<string>configureLabel</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (UILabel *)createLabelForIndex:(NSInteger)index
+	<string>- (void)configureLabel
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 100, 20)];
+    label.center = CGPointMake(30, 30);
+    label.backgroundColor = [UIColor grayColor];
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor blueColor];
+    label.layer.masksToBounds = YES;
+    label.layer.cornerRadius = 10;
+    label.text = @"text";
+    label.textColor = [UIColor redColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.numberOfLines = 0;
+    
+    label.lineBreakMode = NSLineBreakByWordWrapping;//以单词为显示单位显示，后面部分省略不显示
+    label.lineBreakMode = NSLineBreakByCharWrapping;//以字符为显示单位显示，后面部分省略不显示。
+    label.lineBreakMode = NSLineBreakByClipping;//剪切与文本宽度相同的内容长度，后半部分被删除。
+    label.lineBreakMode = NSLineBreakByTruncatingHead;//前面部分文字以……方式省略，显示尾部文字内容。"...wxyz"
+    label.lineBreakMode = NSLineBreakByTruncatingMiddle;//中间的内容以……方式省略，显示头尾的文字内容。"ab...yz"
+    label.lineBreakMode = NSLineBreakByTruncatingTail;//结尾部分的内容以……方式省略，显示头的文字内容。"abcd..."
+    
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    paragraphStyle.lineSpacing = 8;// 字体的行间距
+    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:12],
+                                NSParagraphStyleAttributeName:paragraphStyle};
+    label.attributedText = [[NSAttributedString alloc]initWithString:label.text attributes:attribute];
+    
+}
+
+- (UILabel *)createLabelForIndex:(NSInteger)index
 {
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(14, 5+index*20, 100, 20)];
     label.font = kTinyFont;
@@ -21,9 +51,9 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>createLabelForIndex</string>
+	<string>创建label</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>GreateMethod-UILabel</string>
+	<string>快捷-ConfigureLabel</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

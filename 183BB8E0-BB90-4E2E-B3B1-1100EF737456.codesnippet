@@ -17,10 +17,10 @@ if(![self.navigationController.topViewController isKindOfClass:[RepairSortContro
 	<string>183BB8E0-BB90-4E2E-B3B1-1100EF737456</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>防止Pushing the same view controller instance more than once is not supported</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Exception--防止Pushing the same view controller instance more than once is not supported
-//    // 防止Pushing the same view controller instance more than once is not supported
-</string>
+	<string>技巧-Exception</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

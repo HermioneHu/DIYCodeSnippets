@@ -7,19 +7,17 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// 设置标题为白色
-self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};</string>
+	<string>    NSString *deviceString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
+    deviceString = [deviceString stringByReplacingOccurrencesOfString:@" " withString:@""];</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>347F2862-AC66-45B9-8EE2-916906B8A9C6</string>
+	<string>76A305A3-7D4F-4DF2-8E0B-140F5CC75920</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>局部设置标题颜色</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavBar</string>
+	<string>NSString 处理</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

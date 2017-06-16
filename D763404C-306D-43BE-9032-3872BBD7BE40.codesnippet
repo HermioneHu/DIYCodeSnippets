@@ -104,7 +104,7 @@ NSString *text = @"111";
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSTextAttribute Guide</string>
+	<string>技巧-NSTextAttribute Guide</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
