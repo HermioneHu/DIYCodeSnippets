@@ -7,18 +7,36 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    NSString *deviceString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
-    deviceString = [deviceString stringByReplacingOccurrencesOfString:@" " withString:@""];
+	<string>
+
+- (NSString *)getLocalTime
+{
+    //本地时间获取
+    NSDate *date1 = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"YYYY年MM月dd日 HH:mm:ss";
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia"];
+    
+    [formatter setTimeZone:timeZone];
+    NSString *str1 = [formatter stringFromDate:date1];
+    NSLog(@"%@",str1);
+    
+    return str1;
+}
+
+
+
+
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>C605F94E-E0D7-4954-9954-462EAFEE3229</string>
+	<string>DAF7BDC8-16E6-44C1-915C-79ED1C58E6D1</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>My Code Snippet</string>
+	<string>技巧-本地时间获取</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>

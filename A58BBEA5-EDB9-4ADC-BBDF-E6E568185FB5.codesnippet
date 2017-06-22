@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>       if #available(iOS 10.0, *) {
+
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self as UNUserNotificationCenterDelegate
+            
+            //创建一个包含待通知内容的对象
+            let content = UNMutableNotificationContent()
+//            content.title = "hello"
+            content.body = message
+            content.sound = UNNotificationSound.default()
+            content.badge = 1
+            
+            
+            //在 alert 后推送
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval:60, repeats: true)
+            let request = UNNotificationRequest.init(identifier: "clock", content: content, trigger: trigger)
+            
+            
+            //
+            center.add(request) { (error) in
+                
+                print(NSDate())
+                print("success")
+                
+            }
+            
+        
+        } else {
+            // Fallback on earlier versions
+            
+            
+            let notify = UILocalNotification()
+            //设置本地通知的时区
+            notify.timeZone = NSTimeZone .default
+            notify.alertBody = message
+            notify.applicationIconBadgeNumber = 1;
+            notify.soundName = UILocalNotificationDefaultSoundName
+            notify.fireDate = timeDateB
+            notify.repeatInterval = NSCalendar.Unit.weekOfYear
+            
+            let settings = UIUserNotificationSettings.init(types: [UIUserNotificationType.alert,.badge,.sound], categories: nil)
+            
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            notify.repeatInterval = NSCalendar.Unit.weekOfYear
+            
+            
+            if ( UIApplication.shared.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) ) {
+                //iOS8之后,需要添加注册,才能得到授权
+            
+                
+                let settings = UIUserNotificationSettings.init(types: [UIUserNotificationType.alert,.badge,.sound], categories: nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+                notify.repeatInterval = NSCalendar.Unit.weekOfYear
+                
+
+            } else {
+                
+                
+                //iOS8之前
+                notify.repeatInterval = NSCalendar.Unit.NSWeekCalendarUnit
+                
+            }
+            
+            
+            
+            UIApplication.shared.scheduleLocalNotification(notify)
+            
+        }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A58BBEA5-EDB9-4ADC-BBDF-E6E568185FB5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>技巧- LocalNotification</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

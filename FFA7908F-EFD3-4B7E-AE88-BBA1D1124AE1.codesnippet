@@ -7,14 +7,16 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    NSString *deviceString = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"&lt;&gt;"]];
-    deviceString = [deviceString stringByReplacingOccurrencesOfString:@" " withString:@""];</string>
+	<string>//                
+//                for i in 0 ..&lt; (routingDic?.keys.count)!  {
+//            
+//                }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>76A305A3-7D4F-4DF2-8E0B-140F5CC75920</string>
+	<string>FFA7908F-EFD3-4B7E-AE88-BBA1D1124AE1</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NSString 处理</string>
+	<string>Swift-遍历字典</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
