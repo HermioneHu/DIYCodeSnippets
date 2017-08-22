@@ -13,6 +13,8 @@ UIImage *backImage = [UIImage imageNamed:@"icon_fanye1"];
 backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:self action:@selector(backBarBtnAction:)];
 
+
+
 self.navigationItem.leftBarButtonItem = backBarB;
 
 // ------ 1.隐藏默认的返回按钮
