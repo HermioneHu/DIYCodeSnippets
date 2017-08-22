@@ -8,6 +8,13 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>#pragma mark - 隐藏导航栏左边返回键按钮
+//渲染问题
+UIImage *backImage = [UIImage imageNamed:@"icon_fanye1"];
+backImage = [backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:self action:@selector(backBarBtnAction:)];
+
+self.navigationItem.leftBarButtonItem = backBarB;
+
 // ------ 1.隐藏默认的返回按钮
 self.navigationItem.hidesBackButton = YES;
 // ------ 2.隐藏自定义的左边按钮
@@ -35,7 +42,59 @@ self.navigationController.navigationBar.shadowImage = nil;
 [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
 
 #pragma mark - 设置标题为白色
-self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};</string>
+self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f]};
+
+
+#pragma mark - 使用自定义 Tabbar, 在 pop 回来的时候 tabbar 重叠问题
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    // 删除系统自带的tabBarButton
+    for (UIView *tabBar in self.tabBarController.tabBar.subviews) {
+        if ([tabBar isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBar removeFromSuperview];
+        }
+    }
+}
+
+//在自定义 tabbarcontroller 里面移除自带的 tabbar
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.tabBar.hidden = YES;
+    [self.tabBar removeFromSuperview];
+}
+
+//自定义全局
++ (void)initialize {
+    
+    // ------ 这个导致iOS10 导航栏高度无效
+    [UINavigationBar appearance].translucent = YES;
+    
+    // ------ 全局去掉bar下面的线
+    //    [UINavigationBar appearance].shadowImage = [UIImage new];
+    UIImage *image = [UIImage imageNamed:@"bar_backImage"];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[image resizableImageWithCapInsets:UIEdgeInsetsMake(1, 1, 1, 1) resizingMode:UIImageResizingModeStretch] forBarMetrics:UIBarMetricsDefault];
+    //        [[UINavigationBar appearance] cnSetBackgroundColor:[UIColor whiteColor]];
+    
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:kThemeColor,NSFontAttributeName:[UIFont boldSystemFontOfSize:18.f]}];
+}
+
+//返回指定
+UINavigationController* navC = self.navigationController;
+NSMutableArray* viewControllersArray = [[NSMutableArray alloc] init];
+
+for(UIViewController* vc in [navC viewControllers]){
+    [viewControllersArray addObject:vc];
+    //WantedViewController 为我们想要的视图控制器的名称
+    if([vc isKindOfClass:[WantedViewController class]])
+        break;
+}
+[navC setViewControllers:viewControllersArray animated:YES];
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>F4610CEF-0AED-4E82-A12A-CF12C01E8C65</string>
 	<key>IDECodeSnippetLanguage</key>

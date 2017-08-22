@@ -9,7 +9,9 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (NSString *)datestrForTimescript:(NSString *)timescript
+	<string>//hh与HH的区别:分别表示12小时制,24小时制
+//yyyy:is ordinary calendar year.  YYYY:is week-based calendar year.“将这一年中第一周的周日当作今年的第一天”.因此有时结果和yyyy相同，有时就会不同
+- (NSString *)datestrForTimescript:(NSString *)timescript
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];

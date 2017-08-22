@@ -9,7 +9,11 @@
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (NSString *)timestamp{
+	<string>
+//hh与HH的区别:分别表示12小时制,24小时制
+//yyyy:is ordinary calendar year.  YYYY:is week-based calendar year.“将这一年中第一周的周日当作今年的第一天”.因此有时结果和yyyy相同，有时就会不同
+
+- (NSString *)timestamp{
     
     //计算时间戳：
     NSDate *date = [NSDate date];
@@ -23,6 +27,32 @@
     NSLog(@"当前时间 : %@",[formatter stringFromDate:date]);
     NSLog(@"当前时间戳 : %@",timestampString);
     return timestampString;
+}
+
+
+
+
+//任意时间转换为时间戳
+- (NSString *)dateTimeStrForBookingTime:(NSString *)bookingTime
+{
+    //swift
+    //    let formatter = DateFormatter.init()
+    //    formatter.dateFormat = "YYYY/MM/dd/hh:mm"
+    //
+    //    let date = formatter.date(from: timeStr)!
+    //
+    //    return date.timeIntervalSince1970
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"YYYY-MM-dd hh:mm:ss";//hh与HH的区别:分别表示12小时制,24小时制
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    NSDate *date = [formatter dateFromString:bookingTime];
+    
+    if (!date)
+    {
+        [RLMBProgressHUD alertWithMBProgressHUD:@"时间转换出错"];
+    }
+    return [NSString stringWithFormat:@"%f",[date timeIntervalSince1970]];
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>D337BA3B-023E-4B6A-8B04-D4B23E94B065</string>
