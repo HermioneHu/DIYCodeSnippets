@@ -71,10 +71,47 @@
 // ------  调试处理
 #ifdef DEBUG
 #define RLLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[方法名:%s]\n" "[行号:%d]\n " fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define RLLog(format, ...) NSLog((@"∝══╬▅▅▆▆▇▇◤ %s  [Line %d]\n" fmt),__PRETTY_FUNCTION__,__LINE__, ##__VA_ARGS__)
 #else
 #define RLLog(...);
 #endif
 
+
+
+
+//view设置圆角
+#define ViewBorderRadius(view,radius,width,color)\ [view.layer setCornerRadius:(radius)];\ [view.layer setMasksToBounds:YES];\ [view.layer setBorderWidth:(width)];\ [view.layer setBorderColor:[color CGColor]]
+//强/弱引用
+#define WEAKSEL(type) __weak typeof(type) weak##type = type;
+#define STRONGSELF(type) __strong typeof(type) type = weak##type;
+//由角度转换弧度
+#define DegreesToRadian(x) (M_PI *(x)/180.0)
+//由弧度转换角度
+#define RadianToDegrees(radian) (radian*180.0)/(M_PI)
+//获取图片资源
+#define GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+//GCD代码只执行一次
+#define kDISPATCH_ONCE_BLOCK(onceBlock) static dispatch_once_t onceToken; dispatch_once(&amp;onceToken,onceBlock);
+
+//FONT
+#define FontL(s) [UIFont systemFontOfSize:s weight:UIFontWeightLight]
+#define FontR(s) [UIFont systemFontOfSize:s weight:UIFontWeightRegular]
+#define FontB(s) [UIFont systemFontOfSize:s weight:UIFontWeightBold]
+#define FontT(s) [UIFont systemFontOfSize:s weight:UIFontWeightThin]
+#define Font(s) FontL(s)
+//NSString Format
+#define FORMAT(f, ...) [NSString stringWithFormat:f,##__VA_ARGS__]
+//在主线程运行
+#define kDISPATCH_MAIN_THREAD(mainQueueBlock) dispatch_async(dispatch_get_main_queue(),mainQueueBlock);
+//开启异步线程
+#define kDISPATCH_GLOBAL_QUEUE_DEFAULT(globalQueueBlcok) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY,0),globalQueueBlock);
+//通知
+#define NOTIF_ADD(n,f)     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(f) name:n object:nil]
+#define NOTIF_POST(n,o)     [[NSNotificationCenter defaultCenter] postNotificationName:n object:o]
+#define NOTIF_REMV()     [[NSNotificationCenter defaultCenter] removeObserver:self]
+#define NOTIF_REMVBYNAME(n)   [[NSNotificationCenter defaultCenter] removeObserver:self name:n object:nil];
+//统一收起键盘
+#define ENDEDITING [[[UIApplication sharedApplication] keyWindow] endEditing:YES]
 
 // ------ 系统版本
 #define SYSTEM_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
