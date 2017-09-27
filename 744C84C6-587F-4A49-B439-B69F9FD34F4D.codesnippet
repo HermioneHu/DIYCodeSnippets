@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>@retian</string>
+	<string>@copy</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>ClassInterfaceMethods</string>
+		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@property (nonatomic,retain) &lt;#type#&gt; *&lt;#name#&gt;;</string>
+	<string>property (nonatomic,copy)&lt;#parameterTypes#&gt; &lt;#parameters#&gt;;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>670BFF0F-403B-4EA8-9409-2732924AA3DD</string>
+	<string>744C84C6-587F-4A49-B439-B69F9FD34F4D</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>Property retain</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>快捷</string>
+	<string>copy</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
