@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>-collection</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UICollectionView *)collectionViewForButtonWithFrame:(CGRect)frame{
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.itemSize = CGSizeMake(50, 10);
+    
+    UICollectionView *collectionV = [[UICollectionView alloc]initWithFrame:frame collectionViewLayout:layout];
+    collectionV.delegate = self;
+    collectionV.dataSource = self;
+    [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:colletionCellIdentifier];
+    return collectionV;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>90204B8E-7856-4E75-9222-5F9A9581658E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>createCollectionView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UISearchController *)searchController {
+    if (!_searchController) {
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultController];
+        
+        _searchController.searchResultsUpdater = self;
+        _searchController.delegate = self;
+        _searchController.searchBar.delegate = self;
+        
+        _searchController.dimsBackgroundDuringPresentation = YES;
+        _searchController.searchBar.placeholder = WARLocalizedString(@"输入昵称或者备注名");
+        [_searchController.searchBar sizeToFit];
+        
+        //搜索栏有半透明效果
+        _searchController.searchBar.backgroundImage = [[UIImage alloc]init];
+        _searchController.searchBar.translucent = YES;
+        
+        // 取消按钮与光标颜色
+        _searchController.searchBar.tintColor = COLOR_WORD_Theme;
+        _searchController.searchBar.barTintColor = kColor(whiteColor);//COLOR_SEARCHBAR_BARTINTCOLOR;
+        
+    }
+    
+    return _searchController;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0961FCF8-1F78-492F-BB4D-0183BFBD2452</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>searchBar</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
