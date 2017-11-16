@@ -17,6 +17,82 @@
     [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timescript  doubleValue]]];
 }
+
+
+- (NSString *)datestrForTimescript:(NSString *)timescript{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    return [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timescript  doubleValue]/1000]];
+}
+
+
+- (NSString *)restTimeForPayWithPaymentDealine:(NSString *)paymentDealine{
+    NSUInteger num = [paymentDealine longLongValue];
+    
+    //当前时间戳：
+    NSInteger timeStamp = [[NSDate date] timeIntervalSince1970];
+    NSInteger restSecs = num - timeStamp;
+    
+    NSInteger hour = restSecs/(60*60);
+    restSecs -= hour*60*60;
+    NSInteger mins = restSecs/60;
+    
+    if (hour) {
+        return [NSString stringWithFormat:@"%ld时%ld分",hour,mins];
+    }
+    
+    return [NSString stringWithFormat:@"%ld分",mins];
+}
+
+- (NSString *)restTimeForPayWithOrderTime:(NSString *)orderTime{
+    NSUInteger num = [orderTime longLongValue]/1000;
+    num += 24*60*60;
+    
+    //当前时间戳：
+    NSInteger timeStamp = [[NSDate date] timeIntervalSince1970];
+    NSInteger restSecs = num - timeStamp;
+    
+    NSInteger hour = restSecs/(60*60);
+    restSecs -= hour*60*60;
+    NSInteger mins = restSecs/60;
+    return [NSString stringWithFormat:@"%ld时%ld分",hour,mins];
+}
+
+- (NSString *)restTimeForReceiveWithReceiveDeadline:(NSString *)receiveDeadline{
+    NSUInteger num = [receiveDeadline longLongValue]/1000;
+    
+    //当前时间戳：
+    NSInteger timeStamp = [[NSDate date] timeIntervalSince1970];
+    NSInteger restSecs = num - timeStamp;
+    
+    NSInteger day = restSecs/(60*60*24);
+    restSecs -= day*24*60*60;
+    NSInteger hour = restSecs/(60*60);
+    restSecs -= hour*60*60;
+    NSInteger mins = restSecs/60;
+    
+    if (day) {
+        return [NSString stringWithFormat:@"%ld天%ld时%ld分",day,hour,mins];
+    }
+    return [NSString stringWithFormat:@"%ld时%ld分",hour,mins];
+}
+
+
+- (NSString *)restTimeForReceiveWithDeliveryTime:(NSString *)deliveryTime{
+    NSUInteger num = [deliveryTime longLongValue]/1000;
+    num += 7*24*60*60;
+    
+    //当前时间戳：
+    NSInteger timeStamp = [[NSDate date] timeIntervalSince1970];
+    NSInteger restSecs = num - timeStamp;
+    
+    NSInteger day = restSecs/(60*60*24);
+    restSecs -= day*24*60*60;
+    NSInteger hour = restSecs/(60*60);
+    restSecs -= hour*60*60;
+    NSInteger mins = restSecs/60;
+    return [NSString stringWithFormat:@"%ld天%ld时%ld分",day,hour,mins];
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>ABE4EAB3-04F9-4EF4-9864-3DF76EA92ABF</string>
