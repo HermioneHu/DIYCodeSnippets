@@ -96,6 +96,25 @@ for(UIViewController* vc in [navC viewControllers]){
 }
 [navC setViewControllers:viewControllersArray animated:YES];
 
+
+
+
+// 解决nav的左右button离得屏幕边缘太远问题
+self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingBtn];
+UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+negativeSpacer.width = -20;
+self.navigationItem.rightBarButtonItems = @[negativeSpacer,self.navigationItem.rightBarButtonItem];
+
+
+
+
+
+
+
+
+
+
+
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>F4610CEF-0AED-4E82-A12A-CF12C01E8C65</string>
