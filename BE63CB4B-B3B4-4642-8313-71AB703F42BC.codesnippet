@@ -29,15 +29,31 @@ if #available(iOS 9.0, *) {
     reminderListTable?.cellLayoutMarginsFollowReadableWidth = false
 } else {
     // Fallback on earlier versions
-}</string>
+}
+
+
+
+
+
+// 解决sectionview 不随cell 滑动问题
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat sectionHeaderHeight = self.sectionHeight;
+    if (_tableView.contentOffset.y&lt;=sectionHeaderHeight&amp;&amp;_tableView.contentOffset.y&gt;=0) {
+        _tableView.contentInset = UIEdgeInsetsMake(-_tableView.contentOffset.y, 0, 0, 0);
+    } else if (_tableView.contentOffset.y&gt;=sectionHeaderHeight) {
+        _tableView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
+
+
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>BE63CB4B-B3B4-4642-8313-71AB703F42BC</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>使默认分隔线占满屏幕宽</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>UITableViewCell</string>
+	<string>技巧 - UITableView</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
