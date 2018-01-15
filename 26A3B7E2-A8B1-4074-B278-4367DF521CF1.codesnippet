@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (NSDictionary *)dicForJsonStr:(NSString *)jsonStr{
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&amp;err];
+    return dic;
+}
+
+
+
+
+- (NSString *)replyImageForReply:(BOOL)reply{
+
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"height"] = @(self.repliedMessage.height);
+    dic[@"mimeType"] = self.repliedMessage.mimeType;
+    dic[@"rId"] = self.repliedMessage.imageId;
+    dic[@"width"] = @(self.repliedMessage.width);
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic
+    options:NSJSONWritingPrettyPrinted
+    error:&amp;error];
+    if (jsonData != nil) {
+        NSString *contentStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return contentStr;
+    }
+    return nil;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>26A3B7E2-A8B1-4074-B278-4367DF521CF1</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>json与dict转换</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
