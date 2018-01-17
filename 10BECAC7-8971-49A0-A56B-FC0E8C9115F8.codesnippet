@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        maskLayer.frame = CGRectMake(0, 0, cellWidth, cellHeight);
+        
+        CAShapeLayer *borderLayer = [CAShapeLayer layer];
+        borderLayer.frame = CGRectMake(0, 0, cellWidth, cellHeight);
+        borderLayer.lineWidth = 1.f;
+        borderLayer.strokeColor = lineColor.CGColor;
+        borderLayer.fillColor = [UIColor clearColor].CGColor;
+        
+        UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, cellWidth, cellHeight) cornerRadius:cornerRadius];
+        maskLayer.path = bezierPath.CGPath;
+        borderLayer.path = bezierPath.CGPath;
+        
+        [cell.contentView.layer insertSublayer:borderLayer atIndex:0];
+        [cell.layer setMask:maskLayer];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>10BECAC7-8971-49A0-A56B-FC0E8C9115F8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>画带圆角的边框</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
