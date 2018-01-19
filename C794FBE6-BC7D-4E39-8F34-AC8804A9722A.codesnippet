@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>        // 先缩小
+        containerV.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        
+        // 弹簧动画，参数分别为：时长，延时，弹性（越小弹性越大），初始速度
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+            containerV.transform = CGAffineTransformMakeScale(1, 1);
+
+        } completion:^(BOOL finished) {
+            
+        }];</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C794FBE6-BC7D-4E39-8F34-AC8804A9722A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>弹簧效果动画</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

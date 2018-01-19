@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    CGFloat headerHeight = [_headerV systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect headerFrame = _headerV.frame;
+    headerFrame.size.height = headerHeight;
+    _headerV.frame = headerFrame;</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B7D28A6B-6E2B-42A3-9877-F19B263B84C0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>tableHeader</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
