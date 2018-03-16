@@ -13,7 +13,22 @@
 {
     CGRect bounds = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributeDic context:nil];
     return bounds.size.height;
-}</string>
+}
+
+
+
+// 文字计算
+UIFont *font = [UIFont systemFontOfSize:10];
+NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+paragraphStyle.alignment = NSTextAlignmentLeft;
+NSDictionary *attribute = @{NSFontAttributeName : font,
+                            NSParagraphStyleAttributeName : paragraphStyle};
+
+CGSize textSize = [self boundingRectWithSize:maxSize options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+
+return CGSizeMake(ceil(textSize.width), ceil(textSize.height));
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>30AFEDBD-4651-4A4A-B11A-9D45EAA99D3E</string>
 	<key>IDECodeSnippetLanguage</key>
